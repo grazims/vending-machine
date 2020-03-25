@@ -9,4 +9,16 @@ describe("vendingMachine", () => {
       expect(vending.printStock()).toEqual(true);
     });
   });
+  describe(`Refill vending machine inventory`, () => {
+    it(`should refill stock`, () => {
+      expect(vending.refillStock()).toEqual(true);
+    });
+  });
+  describe("when no coin is inserted, but the user selected an item", () => {
+    it("should return an error", () => {
+      expect(() => {
+        vending.resupplyChange("coin");
+      }).toThrow(Error);
+    });
+  });
 });
